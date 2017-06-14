@@ -15,6 +15,7 @@ defmodule EarlyBird.User do
     |> cast(params, [:username, :email, :password])
     |> validate_required([:username, :email, :password])
     |> validate_length(:password, min: 6)
+    |> validate_format(:email, ~r/@/)
     |> unique_constraint(:username)
     |> unique_constraint(:email)
     |> encrypt_password()

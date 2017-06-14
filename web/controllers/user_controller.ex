@@ -9,10 +9,16 @@ defmodule EarlyBird.UserController do
     render(conn, "new.html", changeset: changeset)
   end   
 
-  def create(conn, params) do
-    IO.puts "*********"
-    IO.inspect params
-
-    redirect(conn, to: page_path(conn, :index))
+  def create(conn, %{"user" => user_params}) do
+    changeset = %User{} |> User.changeset(user_params)
+    
+    case Repo.insert(changeset) do
+    {:ok, user} ->
+      conn
+      |> put_flash(:info, "#{user.username} created!")
+      |> redirect(to: page_path(conn, :index))
+    {:error, changeset} ->
+      render(conn, "new.html", changeset: changeset)
+    end
   end
 end
