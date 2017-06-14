@@ -1,0 +1,19 @@
+<%= form_for @changeset, user_path(@conn, :create), fn(form) -> %>
+  <div class="form-group">
+    <%= text_input(form, :username, placeholder: "Username", class: "form-control") %>
+    <%= error_tag(form, :password) %>
+  </div>
+
+  <div class="form-group">
+    <%= text_input(form, :email, placeholder: "Email", class: "form-control", type: "email") %>
+    <%= error_tag(form, :email) %>
+  </div>
+
+  <div class="form-group">
+    <%= text_input(form, :password, placeholder: "Password", class: "form-control", type: "password") %>
+    <%= error_tag(form, :password) %>
+  </div>
+
+<%= submit("Create Account", class: "btn btn-primary") %>
+
+<% end %>
