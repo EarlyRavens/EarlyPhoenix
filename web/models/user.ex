@@ -12,5 +12,9 @@ defmodule EarlyBird.User do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:username, :email, :encrypted_password])
+    |> validate_required([:username, :email, :encrypted_password])
+    |> validate_length(:encrypted_password, min: 6)
+    |> unique_constraint(:username)
+    |> unique_constraint(:email)
   end
 end
