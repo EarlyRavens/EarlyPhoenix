@@ -4,28 +4,24 @@ defmodule EarlyBird.SessionController do
   alias EarlyBird.User
 
   def login(conn, _pararms) do
-    changeset = User.changeset(%User{}, %{})
-
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "login.html")
   end
 
   def authenticate(conn, %{"user" => %{"email" => email, "password" => password}}) do
 
     user = Repo.get_by(User, email: email)
 
-    # result = 
-    #   cond do
-    #     user && checkpw(password, user.encrypted_password)
-    #   end
-
-    IO.puts "********"
-    IO.inspect email
-    IO.inspect password
-    IO.inspect user
-
-    # changeset = User.changeset()
-
-    redirect(conn, to: page_path(conn, :index))
+    cond do
+      user && Comeonin.Bcrypt.checkpw(password, user.encrypted_password) ->
+        conn
+        |> put_flash(:info, "Welcome back!")
+        |> put_session(:user_id, user.id)
+        |> redirect(to: page_path(conn, :index))
+      true ->
+        conn
+        |> put_flash(:error, "Invalid email/password combination")
+        |> render("login.html") 
+    end
   end
 
   def logout(conn, _params) do

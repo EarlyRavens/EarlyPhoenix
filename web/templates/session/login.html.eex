@@ -1,6 +1,6 @@
 <h1>Log In</h1>
 
-<%= form_for @changeset, session_path(@conn, :authenticate), fn(form) -> %>
+<%= form_for @conn, session_path(@conn, :authenticate), [as: :user], fn(form) -> %>
 
   <div class="form-group">
     <%= text_input(form, :email, placeholder: "Email", class: "form-control") %>
