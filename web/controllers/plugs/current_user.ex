@@ -1,6 +1,5 @@
 defmodule EarlyBird.Plug.CurrentUser do
   import Plug.Conn
-  import Phoenix.Controller
 
   alias EarlyBird.Repo
   alias EarlyBird.User
