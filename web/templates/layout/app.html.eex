@@ -16,7 +16,8 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="#">Log in</a></li>
+            <li><%= link "Home", to: page_path(@conn, :index) %></li>
+            <li><%= link "Log in", to: session_path(@conn, :new) %></li>
           </ul>
         </nav>
         <span class="logo"></span>

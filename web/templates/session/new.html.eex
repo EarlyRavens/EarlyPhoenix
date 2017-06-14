@@ -1,10 +1,6 @@
-<h1>Sign Up</h1>
+<h1>Log In</h1>
 
-<%= form_for @changeset, user_path(@conn, :create), fn(form) -> %>
-  <div class="form-group">
-    <%= text_input(form, :username, placeholder: "Username", class: "form-control") %>
-    <%= error_tag(form, :username) %>
-  </div>
+<%= form_for @changeset, session_path(@conn, :create), fn(form) -> %>
 
   <div class="form-group">
     <%= text_input(form, :email, placeholder: "Email", class: "form-control") %>
@@ -16,6 +12,6 @@
     <%= error_tag(form, :password) %>
   </div>
 
-<%= submit("Create Account", class: "btn btn-primary") %>
+<%= submit("Log In", class: "btn btn-primary") %>
 
 <% end %>
