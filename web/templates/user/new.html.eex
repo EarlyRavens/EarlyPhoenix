@@ -2,7 +2,7 @@
 
 <%= form_for @changeset, user_path(@conn, :create), fn(form) -> %>
   <div class="form-group">
-    <%= text_input(form, :username, placeholder: "Username", class: "form-control") %>
+    <%= text_input(form, :username, placeholder: "Username", class: "form-control", focus: true) %>
     <%= error_tag(form, :username) %>
   </div>
 

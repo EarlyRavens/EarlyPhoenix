@@ -3,5 +3,7 @@
 
   <%= if !@conn.assigns.user do %>
     <p class="lead"><%= link "Sign up", to: user_path(@conn, :new) %> to start your search.</p>
+  <% else %>
+    <p class="lead">Start your <%= link "search", to: "https://early-bird-react-js.herokuapp.com/" %>!</p>    
   <% end %>
 </div>
