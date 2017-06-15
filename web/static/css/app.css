@@ -1,1 +1,89 @@
 /* This file is for your main application css. */
+/** {
+    outline: 1px solid red;
+}*/
+
+body {
+  margin-top: 45px;
+  background-color: #484848 !important;
+  font: 400 15px/1.8 Lato, sans-serif;
+}
+
+.container.text-center {
+  padding-top: 40px;
+  color: red;
+}
+
+nav {
+  background-color: #484848 !important;
+  border: none !important;
+}
+
+.navbar-brand {
+  font: 200 20px/1 'Pacifico', cursive;
+}
+
+.bg-dark {
+  background-color: #2d2d30;
+}
+
+span.pacifico {
+  font: 200 1em/1 'Pacifico', cursive;
+}
+
+.wt-txt {
+  color: white !important;
+  text-shadow: #001 0px 0px 1px;
+}
+
+.medium {
+  font-weight: 400;
+}
+
+.h1-center {
+  text-align: center;
+  margin-top: 20%;
+}
+
+.h1-lg {
+  font-size: 4em;
+}
+
+.caption {
+  padding-top: 5%;
+  text-align: center;
+  font-size: 2em;
+  color: #696969;
+  text-shadow: #001 0px 0px 1px;
+}
+
+.caption a {
+  color: white !important;
+}
+
+.offset-top-5 {
+  margin-top: 5%;
+}
+
+.offset-left-17 {
+  padding-left: 17% !important;
+}
+
+.mg-38 {
+  margin-left: 38%;
+}
+
+.offset-top {
+  margin-top: 5%;
+}
+
+#slideshow, img { 
+  min-height: 100%; 
+  min-width: 1024px; 
+  width: 100%; 
+  height: auto; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index:-9999; 
+}

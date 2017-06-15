@@ -8,25 +8,68 @@
     <meta name="author" content="">
 
     <title>Hello EarlyBird!</title>
+
+    <link rel="icon" type="" href="/images/earlybird.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+     <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><%= link "Home", to: page_path(@conn, :index) %></li>
-            <%= if @conn.assigns.user do %>
-              <li><%= link "Log out", to: session_path(@conn, :logout) %></li>
-            <% else %>
-              <li><%= link "Log in", to: session_path(@conn, :login) %></li>
-            <% end %>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
+  <!-- navbar: Navigiation Bar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
 
+    <!-- container-fluid (full-width): Nav-Bar Components Section -->
+    <div class="container-fluid">
+
+      <!-- navbar-header: Nav-Bar Header Section (visible section on mobiles) -->
+      <div class="navbar-header">
+
+        <!-- navbar-toggle: Expand-Collapsible Button (for mobile viewports) -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#top-nav-bar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>        
+        </button>
+
+        <!-- navbar-brand: Brand Logo -->
+        <a href="<%= page_path(@conn, :index) %>" class="navbar-brand wt-txt">    
+          Early Bird
+        </a>
+      </div>
+
+      <!-- navbar-collapse: Collapsible Nav-Bar Components -->
+      <div class="collapse navbar-collapse" id="top-nav-bar">
+
+        <!-- navbar-nav: Navigation Links -->
+        <ul class="nav navbar-nav navbar-right">
+        <%= if @conn.assigns.user do %>
+          <li><%= link @conn.assigns.user.username, to: "#", class: "wt-txt" %></li>
+          <li><%= link "Log out", to: session_path(@conn, :logout), class: "wt-txt" %></li>
+        <% else %>
+          <li><%= link "Sign up", to: user_path(@conn, :new), class: "wt-txt" %></li>
+          <li><%= link "Log in", to: session_path(@conn, :login), class: "wt-txt" %></li>
+        <% end %>
+        </ul>
+      
+      </div>
+    <!-- container-fluid end tag (Nav-Bar Components)   -->
+    </div>
+  </nav>
+
+
+
+  <body>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
@@ -34,7 +77,12 @@
         <%= render @view_module, @view_template, assigns %>
       </main>
 
-    </div> <!-- /container -->
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+
+    <div id="slideshow">
+      <img src="https://images.unsplash.com/photo-1492138786289-d35ea832da43">
+      <img src="https://images.unsplash.com/photo-1420310414923-bf3651a89816">
+      <img src="https://images.unsplash.com/photo-1455894127589-22f75500213a"> 
+    </div>
   </body>
 </html>

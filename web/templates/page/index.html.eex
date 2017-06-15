@@ -1,9 +1,9 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Early Bird!" %></h2>
+<div>
+  <h1 class="h1-lg h1-center wt-txt">Welcome to <span class="pacifico">Early Bird</span></h1>
 
   <%= if !@conn.assigns.user do %>
-    <p class="lead"><%= link "Sign up", to: user_path(@conn, :new) %> to start your search.</p>
+    <p class="caption medium"><%= link "Sign up", to: user_path(@conn, :new) %> to start your search.</p>
   <% else %>
-    <p class="lead">Start your <%= link "search", to: "https://early-bird-react-js.herokuapp.com/" %>!</p>    
+    <p class="caption medium">Start your <%= link "search", to: "https://early-bird-react-js.herokuapp.com/" %></p>    
   <% end %>
 </div>
